@@ -671,28 +671,33 @@ static char kPlayerItemTimeRangesContext;
  *
  */
 
-- (void) playEvent:(MPRemoteCommandEvent *)event {
+- (MPRemoteCommandHandlerStatusSuccess) playEvent:(MPRemoteCommandEvent *)event {
     [self playCommand:YES];
+    return MPRemoteCommandHandlerStatusSuccess;
 }
 
-- (void) pauseEvent:(MPRemoteCommandEvent *)event {
+- (MPRemoteCommandHandlerStatusSuccess) pauseEvent:(MPRemoteCommandEvent *)event {
     [self pauseCommand:YES];
+    return MPRemoteCommandHandlerStatusSuccess;
 }
 
-- (void) togglePlayPauseTrackEvent:(MPRemoteCommandEvent *)event {
+- (MPRemoteCommandHandlerStatusSuccess) togglePlayPauseTrackEvent:(MPRemoteCommandEvent *)event {
     if ([self avQueuePlayer].isPlaying) {
         [self pauseCommand:YES];
     } else {
         [self playCommand:YES];
     }
+    return MPRemoteCommandHandlerStatusSuccess;
 }
 
-- (void) prevTrackEvent:(MPRemoteCommandEvent *)event {
+- (MPRemoteCommandHandlerStatusSuccess) prevTrackEvent:(MPRemoteCommandEvent *)event {
     [self playPrevious:YES];
+    return MPRemoteCommandHandlerStatusSuccess;
 }
 
-- (void) nextTrackEvent:(MPRemoteCommandEvent *)event {
+- (MPRemoteCommandHandlerStatusSuccess) nextTrackEvent:(MPRemoteCommandEvent *)event {
     [self playNext:YES];
+    return MPRemoteCommandHandlerStatusSuccess;
 }
 
 - (MPRemoteCommandHandlerStatus) changedThumbSliderOnLockScreen:(MPChangePlaybackPositionCommandEvent *)event {
