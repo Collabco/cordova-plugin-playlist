@@ -671,17 +671,17 @@ static char kPlayerItemTimeRangesContext;
  *
  */
 
-- (MPRemoteCommandHandlerStatusSuccess) playEvent:(MPRemoteCommandEvent *)event {
+- (MPRemoteCommandHandlerStatus) playEvent:(MPRemoteCommandEvent *)event {
     [self playCommand:YES];
     return MPRemoteCommandHandlerStatusSuccess;
 }
 
-- (MPRemoteCommandHandlerStatusSuccess) pauseEvent:(MPRemoteCommandEvent *)event {
+- (MPRemoteCommandHandlerStatus) pauseEvent:(MPRemoteCommandEvent *)event {
     [self pauseCommand:YES];
     return MPRemoteCommandHandlerStatusSuccess;
 }
 
-- (MPRemoteCommandHandlerStatusSuccess) togglePlayPauseTrackEvent:(MPRemoteCommandEvent *)event {
+- (MPRemoteCommandHandlerStatus) togglePlayPauseTrackEvent:(MPRemoteCommandEvent *)event {
     if ([self avQueuePlayer].isPlaying) {
         [self pauseCommand:YES];
     } else {
@@ -690,12 +690,12 @@ static char kPlayerItemTimeRangesContext;
     return MPRemoteCommandHandlerStatusSuccess;
 }
 
-- (MPRemoteCommandHandlerStatusSuccess) prevTrackEvent:(MPRemoteCommandEvent *)event {
+- (MPRemoteCommandHandlerStatus) prevTrackEvent:(MPRemoteCommandEvent *)event {
     [self playPrevious:YES];
     return MPRemoteCommandHandlerStatusSuccess;
 }
 
-- (MPRemoteCommandHandlerStatusSuccess) nextTrackEvent:(MPRemoteCommandEvent *)event {
+- (MPRemoteCommandHandlerStatus) nextTrackEvent:(MPRemoteCommandEvent *)event {
     [self playNext:YES];
     return MPRemoteCommandHandlerStatusSuccess;
 }
